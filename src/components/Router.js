@@ -1,19 +1,29 @@
 import { createBrowserRouter } from "react-router-dom";
-import Main from "../layout/Main";
-import SignUp from "./SignUp";
+import SignUpLayout from "../layout/SignUpLayout";
+import SignUpFinalPage from "./SignUpFinalPage";
+import SignUpFirstPage from "./SignUpFirstPage";
+import SignUpSecondPage from "./SignUpSecondPage";
 
 export const router = createBrowserRouter([
     {
         path: '/',
-        element: <Main></Main>,
+        element: <SignUpLayout></SignUpLayout>,
         children: [
             {
                 path: '/',
-                element: <SignUp></SignUp>
+                element: <SignUpFirstPage></SignUpFirstPage>
             },
             {
                 path: '/home',
-                element: <SignUp></SignUp>
+                element: <SignUpFirstPage></SignUpFirstPage>
+            },
+            {
+                path: '/signUpSecondPage',
+                element: <SignUpSecondPage></SignUpSecondPage>
+            },
+            {
+                path: '/signUpFinalPage',
+                element: <SignUpFinalPage></SignUpFinalPage>
             }
         ]
     }
