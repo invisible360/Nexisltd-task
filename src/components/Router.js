@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import SignUpLayout from "../layout/SignUpLayout";
+import AttendanceTable from "./AttendanceTable";
 import Login from "./Login";
 import SignUpFinalPage from "./SignUpFinalPage";
 import SignUpFirstPage from "./SignUpFirstPage";
@@ -31,5 +32,9 @@ export const router = createBrowserRouter([
                 element: <Login></Login>
             }
         ]
+    },
+    {
+        path: '/attendance',
+        element: <AttendanceTable></AttendanceTable>
     }
 ])
