@@ -12,14 +12,12 @@ const SignUpLayout = () => {
             </div>
             <div className='md:col-span-4'>
 
-                <div className='shadow-lg h-full pt-20'>
+                <div className='shadow-lg h-full pb-5 md:pt-20'>
 
-                    <h1 className='text-2xl font-bold text-center py-10'>Sign Up Form</h1>
-                    <form className='space-y-12 flex flex-col items-center justify-center'>
+                    
 
                         <Outlet></Outlet>
 
-                    </form>
 
                 </div>
 
