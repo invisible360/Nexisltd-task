@@ -4,7 +4,7 @@ import logo from '..//assets/logo.png'
 const Header = () => {
     return (
         <div>
-            <img src={logo} alt="" srcset="" />
+            <img className='w-52' src={logo} alt="company-logo" />
         </div>
     );
 };
