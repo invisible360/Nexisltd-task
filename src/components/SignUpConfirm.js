@@ -1,12 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import useAppState from '../hook/useAppState';
 
 const SignUpConfirm = () => {
     const navigate = useNavigate();
 
-    const state = useAppState();
-    console.log(state[0]);
+    // const state = useAppState();
+    // console.log(state[0]);
     
     // useEffect(() => {
         //     navigate(0);

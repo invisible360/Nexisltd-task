@@ -43,7 +43,7 @@ const SignUpFinalPage = () => {
                 if (result.sucess) {
                     toast.success('User added Successfuly');
                     navigate('/signUpConfirm');
-                    navigate(0);
+                    // navigate(0);
                 }
             })
     }
