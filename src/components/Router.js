@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import SignUpLayout from "../layout/SignUpLayout";
 import AttendanceTable from "./AttendanceTable";
 import Login from "./Login";
+import SignUpConfirm from "./SignUpConfirm";
 import SignUpFinalPage from "./SignUpFinalPage";
 import SignUpFirstPage from "./SignUpFirstPage";
 import SignUpSecondPage from "./SignUpSecondPage";
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
             {
                 path: '/login',
                 element: <Login></Login>
+            },
+            {
+                path: '/signUpConfirm',
+                element: <SignUpConfirm></SignUpConfirm>
             }
         ]
     },
