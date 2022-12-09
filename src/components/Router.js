@@ -6,6 +6,7 @@ import SignUpFinalPage from "./SignUpFinalPage";
 import SignUpFirstPage from "./SignUpFirstPage";
 import SignUpSecondPage from "./SignUpSecondPage";
 import EmployeeDeatils from "./EmployeeDetials";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -40,6 +41,6 @@ export const router = createBrowserRouter([
     },
     {
         path: '/employee',
-        element: <EmployeeDeatils></EmployeeDeatils>
+        element: <PrivateRoute><EmployeeDeatils></EmployeeDeatils></PrivateRoute>
     }
 ])

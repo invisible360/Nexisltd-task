@@ -1,12 +1,14 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import Button from './Button';
 
 const Login = () => {
     const navigate = useNavigate();
-    const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
+
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = data => {
         // console.log(data);//login data
 
@@ -24,11 +26,17 @@ const Login = () => {
         })
             .then(res => res.json())
             .then(result => {
-                // console.log(result);//token promise
-                if (result) {
+                console.log(result);//token promise
+                if (result.access_token) {
                     localStorage.setItem('token', result.access_token);
                     reset();
                     navigate('/employee');
+                    // navigate(from, { replace: true });
+                }
+                else if (result.error) {
+                    toast.error('Incorrect Username or Password');
+                    reset();
+
                 }
             })
     }
