@@ -1,11 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import SignUpLayout from "../layout/SignUpLayout";
-import AttendanceTable from "./AttendanceTable";
 import Login from "./Login";
 import SignUpConfirm from "./SignUpConfirm";
 import SignUpFinalPage from "./SignUpFinalPage";
 import SignUpFirstPage from "./SignUpFirstPage";
 import SignUpSecondPage from "./SignUpSecondPage";
+import EmployeeDeatils from "./EmployeeDetials";
 
 export const router = createBrowserRouter([
     {
@@ -39,7 +39,7 @@ export const router = createBrowserRouter([
         ]
     },
     {
-        path: '/attendance',
-        element: <AttendanceTable></AttendanceTable>
+        path: '/employee',
+        element: <EmployeeDeatils></EmployeeDeatils>
     }
 ])

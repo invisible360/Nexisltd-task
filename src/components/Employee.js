@@ -2,7 +2,7 @@ import React from 'react';
 import ppThumb from '../assets/proflepicthumb.png'
 import AttendanceRow from './AttendanceRow';
 
-const EmployeeDetails = ({ details }) => {
+const Employee = ({ details }) => {
     const { name, profile_pic, position, branch, id, username, attendance } = details;
     return (
         <div className="rounded-md shadow-md">
@@ -51,4 +51,4 @@ const EmployeeDetails = ({ details }) => {
     );
 };
 
-export default EmployeeDetails;
+export default Employee;

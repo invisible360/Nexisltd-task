@@ -28,7 +28,7 @@ const Login = () => {
                 if (result) {
                     localStorage.setItem('token', result.access_token);
                     reset();
-                    navigate('/attendance');
+                    navigate('/employee');
                 }
             })
     }
