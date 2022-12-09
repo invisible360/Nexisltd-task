@@ -7,11 +7,13 @@ import SignUpFirstPage from "./SignUpFirstPage";
 import SignUpSecondPage from "./SignUpSecondPage";
 import EmployeeDeatils from "./EmployeeDetials";
 import PrivateRoute from "./PrivateRoute";
+import DisplayError from "./DisplayError";
 
 export const router = createBrowserRouter([
     {
         path: '/',
         element: <SignUpLayout></SignUpLayout>,
+        errorElement: <DisplayError></DisplayError>,
         children: [
             {
                 path: '/',
@@ -41,6 +43,7 @@ export const router = createBrowserRouter([
     },
     {
         path: '/employee',
-        element: <PrivateRoute><EmployeeDeatils></EmployeeDeatils></PrivateRoute>
+        element: <PrivateRoute><EmployeeDeatils></EmployeeDeatils></PrivateRoute>,
+        errorElement: <DisplayError></DisplayError>
     }
 ])
