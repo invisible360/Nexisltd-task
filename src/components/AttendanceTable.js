@@ -1,6 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from '..//assets/logo.png';
+import EmployeeDetails from './EmployeeTable';
 import Loading from './Loading';
 
 const AttendanceTable = () => {
@@ -14,7 +16,6 @@ const AttendanceTable = () => {
                 }
             });
             const data = await res.json();
-            console.log(data);
             return data;
         }
     })
@@ -26,39 +27,18 @@ const AttendanceTable = () => {
     return (
         <div>
 
-            <div className="container p-2 mx-auto sm:p-4 dark:text-gray-100">
-                <img className='w-52' src={logo} alt="company-logo" />
-                <h2 className="mb-4 text-2xl font-semibold leading-tight text-white text-center py-2 bg-[#1678CB]">Attendance Information</h2>
-                <div className="overflow-x-auto">
-                    <table className="min-w-full text-lg">
+                <Link to='/'><img className='w-52' src={logo} alt="company-logo" /></Link>
+            <div className="container p-2 mx-auto lg:w-1/2 sm:p-4 dark:text-gray-100">
+                <h2 className="mb-4 text-2xl font-semibold leading-tight text-white text-center py-2 bg-[#1678CB]">Employee Information</h2>
 
-                        <thead className="dark:bg-gray-700">
-                            <tr className="text-left">
-                                <th className="p-3 text-left">Date</th>
-                                <th className="p-3 text-center">Employee Name</th>
-                                <th className="p-3 text-right">Status</th>
+            <div className='grid grid-cols-1 gap-5'>
+                    {
+                        Object.values(attendaceData).map((details, i) => <EmployeeDetails
+                            key={i}
+                            details={details}
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                Object.keys(attendaceData).map((tr, i) => <tr key={i} className="border-b border-opacity-20 dark:border-gray-700 dark:bg-gray-900">
-                                    <td className="p-3 text-left">
-                                        <p>11/7/2016</p>
-                                    </td>
-                                    <td className="p-3 text-center">
-                                        <p>Tom Hanks</p>
-                                    </td>
-                                    <td className="p-3 text-right">
-                                        <p>Present</p>
-
-                                    </td>
-                                </tr>)
-                            }
-
-
-                        </tbody>
-                    </table>
+                        ></EmployeeDetails>)
+                    }
                 </div>
             </div>
 
