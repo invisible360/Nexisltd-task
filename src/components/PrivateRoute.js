@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Navigate, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const PrivateRoute = ({ children }) => {
 
