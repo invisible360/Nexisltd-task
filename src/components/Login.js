@@ -1,13 +1,14 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from './Button';
 
 const Login = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const navigate = useNavigate();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
     const onSubmit = data => {
-        console.log(data);
+        // console.log(data);//login data
 
         const login = {
             "email": data.email,
@@ -23,30 +24,19 @@ const Login = () => {
         })
             .then(res => res.json())
             .then(result => {
-                console.log(result);
+                // console.log(result);//token promise
                 if (result) {
-
-                    // reset();
-
-                    fetch('https://test.nexisltd.com/test', {
-                        headers: {
-                            authorization: `Barear ${result.access_token}`, //CORS disabled from Server Side
-                        }
-                    })
-                        .then(res => res.json())
-                        .then(data => {
-                            console.log(data);
-                        })
+                    localStorage.setItem('token', result.access_token);
+                    reset();
+                    navigate('/attendance');
                 }
             })
-
     }
 
     return (
         <div>
             <h1 className='text-2xl font-bold text-center py-10'>Login Form</h1>
             <form onSubmit={handleSubmit(onSubmit)} className='space-y-12 flex flex-col items-center justify-center'>
-
 
                 <div className='space-y-2 w-11/12'>
                     <input type="email"
@@ -74,7 +64,6 @@ const Login = () => {
 
                     {errors.password && <p className='text-red-500 text-center'>{errors.password.message}</p>}
                 </div>
-
 
                 <span>
                     <Button>

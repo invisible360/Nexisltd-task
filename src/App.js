@@ -5,12 +5,18 @@ import './App.css';
 import { router } from './components/Router';
 import AppProvider from './Context/AppProvider';
 
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient()
+
 function App() {
   return (
     <div className="max-w-screen-xl	mx-auto">
-      <AppProvider>
-        <RouterProvider router={router}></RouterProvider>
-      </AppProvider>
+      <QueryClientProvider client={queryClient}>
+        <AppProvider>
+          <RouterProvider router={router}></RouterProvider>
+        </AppProvider>
+      </QueryClientProvider>
       <Toaster />
     </div>
   );
